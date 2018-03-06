@@ -1,0 +1,7 @@
+.env
+*.json
+.cache
+!.cache/.keep
+live/**/secrets
+live/kube/secrets/*
+!live/kube/secrets/.keep
