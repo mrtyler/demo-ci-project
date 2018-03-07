@@ -20,5 +20,5 @@ pre_hook = {
 }
 
 post_hook = {
-  command = "kubectl apply -f $XK_LIVE_DIR/kube/secrets/concourse/"
+  command = "kubectl apply -f $XK_LIVE_DIR/secrets/concourse/"
 }

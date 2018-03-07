@@ -1,7 +1,5 @@
-.env
-*.json
+**/.keep
 .cache
-!.cache/.keep
-live/**/secrets
-live/kube/secrets/*
-!live/kube/secrets/.keep
+live/**/secrets/**
+!live/**/secrets/.keep
+!live/**/secrets/*.example

@@ -10,7 +10,7 @@ release_spec = {
 
 post_hook = {
   command = <<-EOF
-  kubectl apply -f $XK_LIVE_DIR/kube/secrets/letsencrypt.yaml \
-  && kubectl apply -f $XK_LIVE_DIR/kube/secrets/dashboard-rbac.yaml
+  kubectl apply -f $XK_LIVE_DIR/secrets/letsencrypt.yaml \
+  && kubectl apply -f $XK_LIVE_DIR/secrets/dashboard-rbac.yaml
   EOF
 }

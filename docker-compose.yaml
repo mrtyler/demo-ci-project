@@ -6,11 +6,9 @@ services:
     working_dir: /project
     environment:
       TF_INPUT: "0"
-      TF_LOG: ""
-      XK_LIVE_DIR: /project/live
-      GOOGLE_CREDENTIALS: /project/owner-key.json
-      TF_VAR_gcp_project: continuous-integration-194808
-      TF_VAR_gcp_remote_state_bucket: continuous-integration-194808-tfstate
+      TF_LOG:
+    env_file:
+      - ./live/prod/.env
     ports:
       - 8001:8001
     volumes:
