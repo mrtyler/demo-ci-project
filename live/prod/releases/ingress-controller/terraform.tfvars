@@ -1,3 +1,23 @@
+# Module metadata
+
+terragrunt = {
+  terraform {
+    source = "/exekube-modules//helm-release"
+  }
+
+  dependencies {
+    paths = [
+      "../../cluster",
+    ]
+  }
+
+  include = {
+    path = "${find_in_parent_folders()}"
+  }
+}
+
+# Module configuration
+
 release_spec = {
   enabled        = true
   release_name   = "ingress-controller"

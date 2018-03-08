@@ -2,7 +2,7 @@ version: "3"
 
 services:
   exekube:
-    image: ilyasotkov/exekube:0.1.0-rc.2
+    image: ilyasotkov/exekube:0.1.0-rc.3
     working_dir: /project
     environment:
       TF_INPUT: "0"
