@@ -19,6 +19,8 @@ terragrunt = {
 }
 
 # Module configuration
+# Module inputs and defaults:
+# https://github.com/exekube/exekube/blob/develop/modules/helm-release/inputs.tf
 
 release_spec = {
   enabled      = true
@@ -29,8 +31,6 @@ release_spec = {
   chart_version = "1.0.0"
 
   domain_name = "ci.swarm.pw"
-
-  # release_values = "values.yaml"
 }
 
 pre_hook = {

@@ -19,6 +19,8 @@ terragrunt = {
 }
 
 # Module configuration
+# Module inputs and defaults:
+# https://github.com/exekube/exekube/blob/develop/modules/helm-release/inputs.tf
 
 release_spec = {
   enabled      = true
@@ -28,8 +30,6 @@ release_spec = {
   chart_name    = "chartmuseum"
   chart_version = "0.3.5"
   domain_name   = "charts.swarm.pw"
-
-  # release_values = "values.yaml"
 }
 
 post_hook = {
@@ -37,7 +37,6 @@ post_hook = {
 }
 
 ingress_basic_auth = {
-  # This Kubernetes secret is used in values.yaml
   secret_name = "chartrepo-htpasswd"
   username    = "chartmuseum/basic-auth-username"
   password    = "chartmuseum/basic-auth-password"

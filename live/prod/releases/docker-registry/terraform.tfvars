@@ -19,6 +19,8 @@ terragrunt = {
 }
 
 # Module configuration
+# Module inputs and defaults:
+# https://github.com/exekube/exekube/blob/develop/modules/helm-release/inputs.tf
 
 release_spec = {
   enabled     = true
@@ -29,12 +31,9 @@ release_spec = {
   chart_repo    = "stable"
   chart_name    = "docker-registry"
   chart_version = "1.0.2"
-
-  # release_values = "values.yaml"
 }
 
 ingress_basic_auth = {
-  # This Kubernetes secret is used in values.yaml
   secret_name = "registry-htpasswd"
   username    = "docker-registry/basic-auth-username"
   password    = "docker-registry/basic-auth-password"

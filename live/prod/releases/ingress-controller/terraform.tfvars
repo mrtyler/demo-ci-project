@@ -17,13 +17,12 @@ terragrunt = {
 }
 
 # Module configuration
+# Module inputs and defaults:
+# https://github.com/exekube/exekube/blob/develop/modules/helm-release/inputs.tf
 
 release_spec = {
-  enabled      = true
-  release_name = "ingress-controller"
-
-  #  release_values = "values.yaml"
-
+  enabled       = true
+  release_name  = "ingress-controller"
   chart_repo    = "stable"
   chart_name    = "nginx-ingress"
   chart_version = "0.9.4"
