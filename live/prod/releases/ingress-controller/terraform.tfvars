@@ -19,9 +19,10 @@ terragrunt = {
 # Module configuration
 
 release_spec = {
-  enabled        = true
-  release_name   = "ingress-controller"
-  release_values = "values.yaml"
+  enabled      = true
+  release_name = "ingress-controller"
+
+  #  release_values = "values.yaml"
 
   chart_repo    = "stable"
   chart_name    = "nginx-ingress"
@@ -30,7 +31,7 @@ release_spec = {
 
 post_hook = {
   command = <<-EOF
-  kubectl apply -f $XK_LIVE_DIR/secrets/letsencrypt.yaml \
-  && kubectl apply -f $XK_LIVE_DIR/secrets/dashboard-rbac.yaml
+  kubectl apply -f $TF_VAR_xk_live_dir/secrets/letsencrypt.yaml \
+  && kubectl apply -f $TF_VAR_xk_live_dir/secrets/dashboard-rbac.yaml
   EOF
 }

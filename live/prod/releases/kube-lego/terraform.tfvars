@@ -20,11 +20,12 @@ terragrunt = {
 # Module configuration
 
 release_spec = {
-  enabled        = true
-  release_name   = "kube-lego"
-  release_values = "values.yaml"
+  enabled      = true
+  release_name = "kube-lego"
 
   chart_repo    = "stable"
   chart_name    = "kube-lego"
   chart_version = "0.4.0"
+
+  # release_values = "values.yaml"
 }

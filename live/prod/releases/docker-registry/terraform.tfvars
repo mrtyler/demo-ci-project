@@ -24,12 +24,13 @@ release_spec = {
   enabled     = true
   domain_name = "registry.swarm.pw"
 
-  release_name   = "docker-registry"
-  release_values = "values.yaml"
+  release_name = "docker-registry"
 
   chart_repo    = "stable"
   chart_name    = "docker-registry"
   chart_version = "1.0.2"
+
+  # release_values = "values.yaml"
 }
 
 ingress_basic_auth = {

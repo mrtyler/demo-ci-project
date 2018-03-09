@@ -21,15 +21,15 @@ terragrunt = {
 # Module configuration
 
 release_spec = {
-  enabled        = true
-  release_name   = "chartmuseum"
-  release_values = "values.yaml"
+  enabled      = true
+  release_name = "chartmuseum"
 
   chart_repo    = "incubator"
   chart_name    = "chartmuseum"
   chart_version = "0.3.5"
+  domain_name   = "charts.swarm.pw"
 
-  domain_name = "charts.swarm.pw"
+  # release_values = "values.yaml"
 }
 
 post_hook = {

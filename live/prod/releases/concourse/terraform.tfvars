@@ -21,24 +21,25 @@ terragrunt = {
 # Module configuration
 
 release_spec = {
-  enabled        = true
-  release_name   = "concourse"
-  release_values = "values.yaml"
+  enabled      = true
+  release_name = "concourse"
 
   chart_repo    = "stable"
   chart_name    = "concourse"
   chart_version = "1.0.0"
 
   domain_name = "ci.swarm.pw"
+
+  # release_values = "values.yaml"
 }
 
 pre_hook = {
   command = <<-EOF
             kubectl create secret generic concourse-concourse \
-            --from-file=$XK_LIVE_DIR/secrets/concourse/ || true
+            --from-file=$TF_VAR_xk_live_dir/secrets/concourse/ || true
             EOF
 }
 
 post_hook = {
-  command = "kubectl apply -f $XK_LIVE_DIR/secrets/ci/"
+  command = "kubectl apply -f $TF_VAR_xk_live_dir/secrets/ci/"
 }

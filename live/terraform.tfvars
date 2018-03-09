@@ -31,9 +31,7 @@ terragrunt = {
         "refresh",
       ]
 
-      arguments = [
-        "-var-file=${get_tfvars_dir()}/inputs.tfvars",
-      ]
+      arguments = []
     }
   }
 }

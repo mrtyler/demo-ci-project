@@ -1,4 +1,4 @@
-**/.keep
+!**/.keep
 .cache
 live/**/secrets/**
 !live/**/secrets/.keep
