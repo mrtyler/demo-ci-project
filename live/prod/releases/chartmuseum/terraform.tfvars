@@ -40,5 +40,5 @@ ingress_basic_auth = {
   # This Kubernetes secret is used in values.yaml
   secret_name = "chartrepo-htpasswd"
   username    = "chartmuseum/basic-auth-username"
-  password    = "charetmuseum/basic-auth-password"
+  password    = "chartmuseum/basic-auth-password"
 }
