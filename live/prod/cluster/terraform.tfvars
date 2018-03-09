@@ -10,6 +10,7 @@ terragrunt = {
   }
 }
 
-# Module metadata
+# Module configuration
+# ---
 # Module inputs and defaults:
 # https://github.com/exekube/exekube/blob/develop/modules/gke-cluster/inputs.tf
