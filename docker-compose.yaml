@@ -2,7 +2,7 @@ version: "3"
 
 services:
   exekube:
-    image: ilyasotkov/exekube:0.1.0-rc.3
+    image: ilyasotkov/exekube:0.1.0-rc.4
     working_dir: /project
     environment:
       TF_INPUT: "0"
@@ -12,6 +12,7 @@ services:
     ports:
       - 8001:8001
     volumes:
+      # - ../exekube/modules:/exekube-modules
       - .:/project
       - ./.cache/helm:/root/.helm
       - ./.cache/terragrunt:/root/.terragrunt
