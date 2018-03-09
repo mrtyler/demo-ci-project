@@ -1,10 +1,12 @@
 # Internal Ops Project
 
-This example project uses the [Exekube framework](https://github.com/exekube/exekube). The **Internal Ops Project** contains configuration for deploying a Kubernetes cluster onto the Google Kubernetes Engine (GKE), as well as Kubernetes resources that result in this software released into the cloud:
+This example project uses the [Exekube framework](https://github.com/exekube/exekube).
 
-- CI / CD self-hosted service (Concourse, Jenkins, Drone)
-- A private Docker Registry (v2)
-- A ChartMuseum repository for hosting Helm charts
+The **Internal Ops Project** contains configuration for deploying a Kubernetes cluster onto the Google Kubernetes Engine (GKE), as well as Kubernetes resources that result in this software released into the cloud:
+
+- CI / CD self-hosted service (✈️ Concourse, Jenkins, or Drone)
+- A private 🐳 Docker Registry (v2)
+- A 📋 ChartMuseum repository for hosting Helm charts
 
 ## Project structure
 
