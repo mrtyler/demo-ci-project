@@ -23,7 +23,29 @@ The `live` directory contains configuration for every environment (dev, stg, tes
 
 ## Environment (product environment) configuration
 
-Every environment (dev, stg, test, prod) directory is broken down into resources (cloud resources) of these categories: **project, cluster, releases, secrets**:
+Every environment (dev, stg, test, prod, etc.) directory is broken down into resources (cloud resources) of these categories: **project, cluster, releases, secrets**:
+
+```
+live
+├── dev
+│   ├── cluster
+│   ├── project
+│   ├── releases
+│   └── secrets
+├── stg
+│   ├── cluster
+│   ├── project
+│   ├── releases
+│   └── secrets
+├── prod
+│   ├── cluster
+│   ├── project
+│   ├── releases
+│   └── secrets
+└── terraform.tfvars
+```
+
+TODO: describe module structure (terraform.tfvars + values.yaml)
 
 ```
 live
@@ -80,7 +102,5 @@ live
 │           └── owner.json
 ├── stg
 └── terraform.tfvars
-
-16 directories, 37 files
 ```
 ... to be continued ...
