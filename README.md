@@ -26,7 +26,7 @@ The `live` directory contains configuration for every environment (dev, stg, tes
 Every environment (dev, stg, test, prod) directory is broken down into resources (cloud resources) of these categories: **project, cluster, releases, secrets**:
 
 ```
-live/
+live
 ├── prod
 │   ├── cluster
 │   │   └── terraform.tfvars
@@ -43,7 +43,10 @@ live/
 │   │   ├── ingress-controller
 │   │   │   ├── terraform.tfvars
 │   │   │   └── values.yaml
-│   │   └── kube-lego
+│   │   ├── kube-lego
+│   │   │   ├── terraform.tfvars
+│   │   │   └── values.yaml
+│   │   └── rails-app
 │   │       ├── terraform.tfvars
 │   │       └── values.yaml
 │   └── secrets
@@ -66,8 +69,6 @@ live/
 │       │   ├── old-encryption-key
 │       │   ├── postgresql-user
 │       │   ├── session-signing-key
-│       │   ├── vault-ca-cert
-│       │   ├── vault-client-token
 │       │   ├── worker-key
 │       │   └── worker-key-pub
 │       ├── dashboard-rbac.yaml
@@ -80,6 +81,6 @@ live/
 ├── stg
 └── terraform.tfvars
 
-15 directories, 37 files
+16 directories, 37 files
 ```
 ... to be continued ...
