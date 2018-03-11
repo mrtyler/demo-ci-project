@@ -29,7 +29,7 @@ release_spec = {
 
   chart_repo    = "stable"
   chart_name    = "concourse"
-  chart_version = "1.0.0"
+  chart_version = "1.0.4"
 
   domain_name = "ci.swarm.pw"
 }

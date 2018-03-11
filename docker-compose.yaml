@@ -1,13 +1,14 @@
-version: "3"
+version: "2"
 
 services:
   exekube:
-    image: ilyasotkov/exekube:0.1.0-rc.4
+    image: ilyasotkov/exekube:latest
     # image: exekube-ksonnet:latest
     working_dir: /project
     environment:
       TF_INPUT: "0"
       TF_LOG:
+      USER: root
     env_file:
       - ./live/prod/secrets/.env
     ports:
