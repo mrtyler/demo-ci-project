@@ -23,7 +23,7 @@ release_spec = {
   release_name  = "ingress-controller"
   chart_repo    = "stable"
   chart_name    = "nginx-ingress"
-  chart_version = "0.9.4"
+  chart_version = "0.11.1"
 }
 
 post_hook = {

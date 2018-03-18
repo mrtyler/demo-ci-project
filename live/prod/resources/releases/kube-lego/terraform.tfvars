@@ -18,17 +18,15 @@ terragrunt = {
 }
 
 # Module configuration
+# ---
+# Module inputs and defaults:
+# https://github.com/exekube/exekube/blob/develop/modules/helm-release/inputs.tf
 
 release_spec = {
-  enabled      = false
-  namespace    = "kube-system"
-  release_name = "cert-manager"
+  enabled      = true
+  release_name = "kube-lego"
 
   chart_repo    = "stable"
-  chart_name    = "cert-manager"
-  chart_version = "0.2.3"
-}
-
-post_hook = {
-  command = "kubectl apply -f $SECRETS_DIR/team1/staging-issuer.yaml"
+  chart_name    = "kube-lego"
+  chart_version = "0.4.0"
 }
