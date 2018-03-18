@@ -1,5 +1,7 @@
 !**/.keep
+**/terraform.json
 .cache
 live/**/secrets/**
 !live/**/secrets/.keep
+!live/**/secrets/terraform.tfvars
 !live/**/secrets/*.example

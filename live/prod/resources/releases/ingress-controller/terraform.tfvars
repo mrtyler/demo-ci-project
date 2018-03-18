@@ -17,9 +17,6 @@ terragrunt = {
 }
 
 # Module configuration
-# ---
-# Module inputs and defaults:
-# https://github.com/exekube/exekube/blob/develop/modules/helm-release/inputs.tf
 
 release_spec = {
   enabled       = true
@@ -30,8 +27,5 @@ release_spec = {
 }
 
 post_hook = {
-  command = <<-EOF
-  kubectl apply -f $TF_VAR_xk_live_dir/secrets/letsencrypt.yaml \
-  && kubectl apply -f $TF_VAR_xk_live_dir/secrets/dashboard-rbac.yaml
-  EOF
+  command = "kubectl apply -f $SECRETS_DIR/team1/dashboard-rbac.yaml"
 }

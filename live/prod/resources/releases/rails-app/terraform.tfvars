@@ -9,6 +9,7 @@ terragrunt = {
     paths = [
       "../../cluster",
       "../ingress-controller",
+      "../cert-manager",
     ]
   }
 
@@ -18,15 +19,13 @@ terragrunt = {
 }
 
 # Module configuration
-# ---
-# Module inputs and defaults:
-# https://github.com/exekube/exekube/blob/develop/modules/helm-release/inputs.tf
 
 release_spec = {
-  enabled      = true
-  release_name = "kube-lego"
+  enabled      = false
+  release_name = "rails-app"
 
-  chart_repo    = "stable"
-  chart_name    = "kube-lego"
-  chart_version = "0.4.0"
+  chart_repo = "exekube"
+  chart_name = "rails-app"
+
+  domain_name = "prod.rails-app.flexeption.pw"
 }

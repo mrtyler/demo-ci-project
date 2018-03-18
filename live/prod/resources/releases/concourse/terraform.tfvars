@@ -24,21 +24,23 @@ terragrunt = {
 # https://github.com/exekube/exekube/blob/develop/modules/helm-release/inputs.tf
 
 release_spec = {
-  enabled      = true
-  release_name = "chartmuseum"
+  enabled      = false
+  release_name = "concourse"
 
-  chart_repo    = "incubator"
-  chart_name    = "chartmuseum"
-  chart_version = "0.3.5"
-  domain_name   = "charts.swarm.pw"
+  chart_repo    = "stable"
+  chart_name    = "concourse"
+  chart_version = "1.0.4"
+
+  domain_name = "ci.swarm.pw"
+}
+
+pre_hook = {
+  command = <<-EOF
+            kubectl create secret generic concourse-concourse \
+            --from-file=$TF_VAR_xk_live_dir/secrets/concourse/ || true
+            EOF
 }
 
 post_hook = {
-  command = "sleep 10"
-}
-
-ingress_basic_auth = {
-  secret_name = "chartrepo-htpasswd"
-  username    = "chartmuseum/basic-auth-username"
-  password    = "chartmuseum/basic-auth-password"
+  command = "kubectl apply -f $TF_VAR_xk_live_dir/secrets/ci/"
 }

@@ -11,6 +11,7 @@ terragrunt = {
 }
 
 # Module configuration
-# ---
-# Module inputs and defaults:
-# https://github.com/exekube/exekube/blob/develop/modules/gke-cluster/inputs.tf
+
+project_id = "prod-internal-ops-0aea2b77"
+
+network_name = "prod-internal-ops-network"

@@ -24,23 +24,18 @@ terragrunt = {
 # https://github.com/exekube/exekube/blob/develop/modules/helm-release/inputs.tf
 
 release_spec = {
-  enabled      = true
-  release_name = "concourse"
+  enabled     = false
+  domain_name = "registry.swarm.pw"
+
+  release_name = "docker-registry"
 
   chart_repo    = "stable"
-  chart_name    = "concourse"
-  chart_version = "1.0.4"
-
-  domain_name = "ci.swarm.pw"
+  chart_name    = "docker-registry"
+  chart_version = "1.0.2"
 }
 
-pre_hook = {
-  command = <<-EOF
-            kubectl create secret generic concourse-concourse \
-            --from-file=$TF_VAR_xk_live_dir/secrets/concourse/ || true
-            EOF
-}
-
-post_hook = {
-  command = "kubectl apply -f $TF_VAR_xk_live_dir/secrets/ci/"
+ingress_basic_auth = {
+  secret_name = "registry-htpasswd"
+  username    = "docker-registry/basic-auth-username"
+  password    = "docker-registry/basic-auth-password"
 }

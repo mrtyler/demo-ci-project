@@ -24,18 +24,21 @@ terragrunt = {
 # https://github.com/exekube/exekube/blob/develop/modules/helm-release/inputs.tf
 
 release_spec = {
-  enabled     = true
-  domain_name = "registry.swarm.pw"
+  enabled      = false
+  release_name = "chartmuseum"
 
-  release_name = "docker-registry"
+  chart_repo    = "incubator"
+  chart_name    = "chartmuseum"
+  chart_version = "0.3.5"
+  domain_name   = "charts.swarm.pw"
+}
 
-  chart_repo    = "stable"
-  chart_name    = "docker-registry"
-  chart_version = "1.0.2"
+post_hook = {
+  command = "sleep 10"
 }
 
 ingress_basic_auth = {
-  secret_name = "registry-htpasswd"
-  username    = "docker-registry/basic-auth-username"
-  password    = "docker-registry/basic-auth-password"
+  secret_name = "chartrepo-htpasswd"
+  username    = "chartmuseum/basic-auth-username"
+  password    = "chartmuseum/basic-auth-password"
 }

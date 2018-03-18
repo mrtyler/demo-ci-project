@@ -4,9 +4,10 @@ terragrunt = {
     backend = "gcs"
 
     config {
-      bucket  = "${get_env("TF_VAR_gcp_remote_state_bucket", "")}"
-      project = "${get_env("TF_VAR_gcp_project", "")}"
-      prefix  = "${path_relative_to_include()}"
+      project     = "${get_env("TF_VAR_terraform_project", "")}"
+      credentials = "${get_env("TF_VAR_terraform_credentials", "")}"
+      bucket      = "${get_env("TF_VAR_terraform_remote_state", "")}"
+      prefix      = "${path_relative_to_include()}"
     }
   }
 
@@ -19,19 +20,6 @@ terragrunt = {
     extra_arguments "force_destroy" {
       commands  = ["destroy"]
       arguments = ["-force"]
-    }
-
-    extra_arguments "custom_vars" {
-      commands = [
-        "apply",
-        "plan",
-        "destroy",
-        "import",
-        "push",
-        "refresh",
-      ]
-
-      arguments = []
     }
   }
 }

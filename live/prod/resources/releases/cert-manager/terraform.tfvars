@@ -9,7 +9,6 @@ terragrunt = {
     paths = [
       "../../cluster",
       "../ingress-controller",
-      "../kube-lego",
     ]
   }
 
@@ -19,16 +18,17 @@ terragrunt = {
 }
 
 # Module configuration
-# ---
-# Module inputs and defaults:
-# https://github.com/exekube/exekube/blob/develop/modules/helm-release/inputs.tf
 
 release_spec = {
   enabled      = true
-  release_name = "rails-app"
+  namespace    = "kube-system"
+  release_name = "cert-manager"
 
-  chart_repo = "exekube"
-  chart_name = "rails-app"
+  chart_repo    = "stable"
+  chart_name    = "cert-manager"
+  chart_version = "0.2.3"
+}
 
-  domain_name = "staging.rails.swarm.pw"
+post_hook = {
+  command = "kubectl apply -f $SECRETS_DIR/team1/staging-issuer.yaml"
 }

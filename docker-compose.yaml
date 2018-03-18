@@ -2,20 +2,20 @@ version: "2"
 
 services:
   exekube:
-    image: ilyasotkov/exekube:latest
-    # image: exekube-ksonnet:latest
+    image: ilyasotkov/exekube:0.2-alpha.1
     working_dir: /project
     environment:
       TF_INPUT: "0"
       TF_LOG:
       USER: root
     env_file:
-      - ./live/prod/secrets/.env
+      - ./live/.env
+      - ./live/prod/.env
     ports:
       - 8001:8001
     volumes:
-      # - ../exekube/modules:/exekube-modules
-      # - ../exekube/docker-entrypoint.sh:/usr/local/bin/docker-entrypoint.sh
+      - ../exekube/modules:/exekube-modules
+      - ../exekube/docker-entrypoint.sh:/usr/local/bin/docker-entrypoint.sh
       - .:/project
       - ./.cache/helm:/root/.helm
       - ./.cache/terragrunt:/root/.terragrunt
