@@ -30,5 +30,5 @@ release_spec = {
 }
 
 post_hook = {
-  command = "kubectl apply -f $SECRETS_DIR/team1/staging-issuer.yaml"
+  command = "kubectl apply -f $TF_VAR_secrets_dir/team1/staging-issuer.yaml"
 }

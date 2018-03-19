@@ -12,6 +12,4 @@ terragrunt = {
 
 # Module configuration
 
-project_id = "prod-internal-ops-0aea2b77"
-
 network_name = "prod-internal-ops-network"

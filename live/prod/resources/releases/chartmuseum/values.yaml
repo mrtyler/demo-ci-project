@@ -2,8 +2,7 @@ env:
   open:
     DISABLE_API: false
     ALLOW_OVERWRITE: true
-    DISABLE_METRICS: true
-      
+
 persistence:
   Enabled: true
 

@@ -24,23 +24,20 @@ terragrunt = {
 # https://github.com/exekube/exekube/blob/develop/modules/helm-release/inputs.tf
 
 release_spec = {
-  enabled      = false
+  enabled      = true
   release_name = "concourse"
 
   chart_repo    = "stable"
   chart_name    = "concourse"
   chart_version = "1.0.4"
 
-  domain_name = "ci.swarm.pw"
+  domain_name = "ci.flexeption.pw"
 }
 
 pre_hook = {
-  command = <<-EOF
-            kubectl create secret generic concourse-concourse \
-            --from-file=$TF_VAR_xk_live_dir/secrets/concourse/ || true
-            EOF
+  command = "kubectl apply -f $TF_VAR_secrets_dir/team1/concourse/concourse.yaml"
 }
 
 post_hook = {
-  command = "kubectl apply -f $TF_VAR_xk_live_dir/secrets/ci/"
+  command = "kubectl apply -f $TF_VAR_secrets_dir/team1/ci/"
 }

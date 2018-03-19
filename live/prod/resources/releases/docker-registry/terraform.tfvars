@@ -24,18 +24,18 @@ terragrunt = {
 # https://github.com/exekube/exekube/blob/develop/modules/helm-release/inputs.tf
 
 release_spec = {
-  enabled     = false
-  domain_name = "registry.swarm.pw"
+  enabled     = true
+  domain_name = "registry.flexeption.pw"
 
   release_name = "docker-registry"
 
   chart_repo    = "stable"
   chart_name    = "docker-registry"
-  chart_version = "1.0.2"
+  chart_version = "1.0.5"
 }
 
 ingress_basic_auth = {
   secret_name = "registry-htpasswd"
-  username    = "docker-registry/basic-auth-username"
-  password    = "docker-registry/basic-auth-password"
+  username    = "team1/docker-registry/basic-auth-username"
+  password    = "team1/docker-registry/basic-auth-password"
 }

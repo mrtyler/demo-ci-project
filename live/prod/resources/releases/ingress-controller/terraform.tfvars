@@ -27,5 +27,8 @@ release_spec = {
 }
 
 post_hook = {
-  command = "kubectl apply -f $SECRETS_DIR/team1/dashboard-rbac.yaml"
+  command = <<-EOF
+    kubectl apply -f $TF_VAR_secrets_dir/team1/dashboard-rbac.yaml \
+    && kubectl apply -f $TF_VAR_secrets_dir/team1/tls-certs.yaml
+    EOF
 }
