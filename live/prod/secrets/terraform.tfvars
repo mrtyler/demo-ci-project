@@ -21,7 +21,12 @@ keyring_admins = [
 
 keyring_users = []
 
-crypto_keys = {
-  "team1" = "user:ilya@sotkov.com"
-  "team2" = "user:ilya@sotkov.com"
-}
+crypto_keys = [
+  "team1",
+  "team2",
+]
+
+crypto_keys_users = [
+  "user:ilya@sotkov.com",
+  "user:ilya@sotkov.com",
+]
