@@ -24,6 +24,7 @@ terragrunt = {
 
 release_spec = {
   enabled      = true
+  namespace    = "kube-system"
   release_name = "kube-lego"
 
   chart_repo    = "stable"

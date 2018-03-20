@@ -20,6 +20,7 @@ terragrunt = {
 
 release_spec = {
   enabled       = true
+  namespace     = "kube-system"
   release_name  = "ingress-controller"
   chart_repo    = "stable"
   chart_name    = "nginx-ingress"
