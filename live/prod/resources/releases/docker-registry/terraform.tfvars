@@ -24,7 +24,7 @@ terragrunt = {
 # https://github.com/exekube/exekube/blob/develop/modules/helm-release/inputs.tf
 
 release_spec = {
-  enabled     = true
+  enabled     = false
   domain_name = "registry.flexeption.pw"
 
   release_name = "docker-registry"
