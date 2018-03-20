@@ -8,8 +8,8 @@ terragrunt = {
   dependencies {
     paths = [
       "../../cluster",
-      "../ingress-controller",
-      "../kube-lego",
+      "../../system/ingress-controller",
+      "../../system/kube-lego",
     ]
   }
 
@@ -24,7 +24,7 @@ terragrunt = {
 # https://github.com/exekube/exekube/blob/develop/modules/helm-release/inputs.tf
 
 release_spec = {
-  enabled      = true
+  enabled      = false
   release_name = "concourse"
 
   chart_repo    = "stable"

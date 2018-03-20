@@ -8,8 +8,8 @@ terragrunt = {
   dependencies {
     paths = [
       "../../cluster",
-      "../ingress-controller",
-      "../kube-lego",
+      "../../system/ingress-controller",
+      "../../system/kube-lego",
     ]
   }
 

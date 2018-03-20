@@ -21,9 +21,11 @@ keyring_users = []
 crypto_keys = [
   "team1",
   "team2",
+  "system",
 ]
 
 crypto_keys_users = [
+  "user:ilya@sotkov.com",
   "user:ilya@sotkov.com",
   "user:ilya@sotkov.com",
 ]
