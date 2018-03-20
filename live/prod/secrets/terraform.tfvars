@@ -11,9 +11,6 @@ terragrunt = {
 }
 
 # Module configuration
-# ---
-# Module inputs and defaults:
-# https://github.com/exekube/exekube/blob/develop/modules/gcp-kms-secret-mgmt/variables.tf
 
 keyring_admins = [
   "user:ilya@sotkov.com",
