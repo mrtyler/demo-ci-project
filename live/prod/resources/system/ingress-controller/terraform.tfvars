@@ -8,6 +8,7 @@ terragrunt = {
   dependencies {
     paths = [
       "../../cluster",
+      "../helm-tiller",
     ]
   }
 
@@ -16,7 +17,9 @@ terragrunt = {
   }
 }
 
-# Module configuration
+# Module configuration variables
+
+custom_tls_dir = "system"
 
 release_spec = {
   enabled       = true

@@ -18,10 +18,9 @@ terragrunt = {
   }
 }
 
-# Module configuration
-# ---
-# Module inputs and defaults:
-# https://github.com/exekube/exekube/blob/develop/modules/helm-release/inputs.tf
+# Module configuration variables
+
+custom_tls_dir = "system"
 
 release_spec = {
   enabled     = false

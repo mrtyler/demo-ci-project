@@ -7,7 +7,6 @@ terragrunt = {
 
   dependencies {
     paths = [
-      "../../cluster",
       "../ingress-controller",
     ]
   }
@@ -17,7 +16,9 @@ terragrunt = {
   }
 }
 
-# Module configuration
+# Module configuration variables
+
+custom_tls_dir = "system"
 
 release_spec = {
   enabled      = false

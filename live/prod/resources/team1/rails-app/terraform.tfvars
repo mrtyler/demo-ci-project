@@ -20,6 +20,8 @@ terragrunt = {
 
 # Module configuration
 
+custom_tls_dir = "system"
+
 release_spec = {
   enabled      = false
   release_name = "rails-app"
