@@ -29,6 +29,6 @@ release_spec = {
 }
 
 kubernetes_secrets = [
-  "kube-system/dashboard/rbac.yaml",
+  "kube-system/rbac/dashboard.yaml",
   "kube-system/kube-lego/certs.yaml",
 ]
