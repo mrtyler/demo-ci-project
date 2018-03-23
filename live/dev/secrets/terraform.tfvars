@@ -12,7 +12,8 @@ terragrunt = {
 
 # ↓ Module configuration (empty means all default)
 
-keys = [
+# A Google Cloud Storage bucket will be created for each encryption key
+encryption_keys = [
   "kube-system",
   "default",
 ]

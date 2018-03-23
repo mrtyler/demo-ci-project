@@ -1,4 +1,8 @@
 /*
+
+Template for managing Google Cloud IAM role bindings to users or serviceAccounts
+
+
 # Full control over the kerring and all encryption keys in it
 resource "google_kms_key_ring_iam_binding" "keyring_admins" {
   key_ring_id = ""
