@@ -1,4 +1,4 @@
-# Module metadata
+# ↓ Module metadata
 
 terragrunt = {
   terraform {
@@ -8,8 +8,8 @@ terragrunt = {
   dependencies {
     paths = [
       "../../cluster",
-      "../ingress-controller",
-      "../kube-lego",
+      "../../kube-system/ingress-controller",
+      "../../kube-system/kube-lego",
     ]
   }
 
@@ -19,16 +19,13 @@ terragrunt = {
 }
 
 # Module configuration
-# ---
-# Module inputs and defaults:
-# https://github.com/exekube/exekube/blob/develop/modules/helm-release/inputs.tf
 
 release_spec = {
-  enabled      = true
+  enabled      = false
   release_name = "rails-app"
 
   chart_repo = "exekube"
   chart_name = "rails-app"
 
-  domain_name = "staging.rails.swarm.pw"
+  domain_name = "prod.rails-app.flexeption.pw"
 }

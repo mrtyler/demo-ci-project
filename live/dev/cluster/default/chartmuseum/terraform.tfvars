@@ -1,4 +1,4 @@
-# Module metadata
+# ↓ Module metadata
 
 terragrunt = {
   terraform {
@@ -8,8 +8,8 @@ terragrunt = {
   dependencies {
     paths = [
       "../../cluster",
-      "../ingress-controller",
-      "../kube-lego",
+      "../../kube-system/ingress-controller",
+      "../../kube-system/kube-lego",
     ]
   }
 
@@ -18,19 +18,16 @@ terragrunt = {
   }
 }
 
-# Module configuration
-# ---
-# Module inputs and defaults:
-# https://github.com/exekube/exekube/blob/develop/modules/helm-release/inputs.tf
+# ↓ Module configuration (empty means all default)
 
 release_spec = {
-  enabled      = true
+  enabled      = false
   release_name = "chartmuseum"
 
   chart_repo    = "incubator"
   chart_name    = "chartmuseum"
-  chart_version = "0.3.5"
-  domain_name   = "charts.swarm.pw"
+  chart_version = "0.4.4"
+  domain_name   = "charts.flexeption.pw"
 }
 
 post_hook = {
@@ -39,6 +36,6 @@ post_hook = {
 
 ingress_basic_auth = {
   secret_name = "chartrepo-htpasswd"
-  username    = "chartmuseum/basic-auth-username"
-  password    = "chartmuseum/basic-auth-password"
+  username    = "team1/chartmuseum/basic-auth-username"
+  password    = "team1/chartmuseum/basic-auth-password"
 }

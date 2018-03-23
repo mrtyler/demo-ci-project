@@ -1,4 +1,4 @@
-# Module metadata
+# ↓ Module metadata
 
 terragrunt = {
   terraform {
@@ -8,6 +8,7 @@ terragrunt = {
   dependencies {
     paths = [
       "../../cluster",
+      "../helm-tiller",
     ]
   }
 
@@ -16,22 +17,20 @@ terragrunt = {
   }
 }
 
-# Module configuration
-# ---
-# Module inputs and defaults:
-# https://github.com/exekube/exekube/blob/develop/modules/helm-release/inputs.tf
+# ↓ Module configuration (empty means all default)
 
 release_spec = {
   enabled       = true
+  namespace     = "kube-system"
   release_name  = "ingress-controller"
   chart_repo    = "stable"
   chart_name    = "nginx-ingress"
-  chart_version = "0.9.4"
+  chart_version = "0.11.1"
 }
 
 post_hook = {
   command = <<-EOF
-  kubectl apply -f $TF_VAR_xk_live_dir/secrets/letsencrypt.yaml \
-  && kubectl apply -f $TF_VAR_xk_live_dir/secrets/dashboard-rbac.yaml
-  EOF
+    kubectl apply -f $TF_VAR_secrets_dir/kube-system/dashboard/rbac.yaml \
+    && kubectl apply -f $TF_VAR_secrets_dir/kube-system/kube-lego/certs.yaml
+    EOF
 }

@@ -1,4 +1,4 @@
-# Module metadata
+# ↓ Module metadata
 
 terragrunt = {
   terraform {
@@ -7,7 +7,7 @@ terragrunt = {
 
   dependencies {
     paths = [
-      "../../cluster",
+      "../helm-tiller",
       "../ingress-controller",
     ]
   }
@@ -17,13 +17,11 @@ terragrunt = {
   }
 }
 
-# Module configuration
-# ---
-# Module inputs and defaults:
-# https://github.com/exekube/exekube/blob/develop/modules/helm-release/inputs.tf
+# ↓ Module configuration (empty means all default)
 
 release_spec = {
   enabled      = true
+  namespace    = "kube-system"
   release_name = "kube-lego"
 
   chart_repo    = "stable"
