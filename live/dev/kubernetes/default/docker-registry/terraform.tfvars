@@ -20,14 +20,12 @@ terragrunt = {
 
 # ↓ Module configuration (empty means all default)
 
-tiller_namespace = "default"
-
 release_spec = {
-  enabled     = true
-  domain_name = "registry.flexeption.pw"
+  enabled          = true
+  tiller_namespace = "default"
 
-  release_name = "docker-registry"
-
+  domain_name   = "registry.flexeption.pw"
+  release_name  = "docker-registry"
   chart_repo    = "stable"
   chart_name    = "docker-registry"
   chart_version = "1.0.5"

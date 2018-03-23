@@ -28,9 +28,7 @@ release_spec = {
   chart_version = "0.11.1"
 }
 
-post_hook = {
-  command = <<-EOF
-    kubectl apply -f $TF_VAR_secrets_dir/kube-system/dashboard/rbac.yaml \
-    && kubectl apply -f $TF_VAR_secrets_dir/kube-system/kube-lego/certs.yaml
-    EOF
-}
+kubernetes_secrets = [
+  "kube-system/dashboard/rbac.yaml",
+  "kube-system/kube-lego/certs.yaml",
+]

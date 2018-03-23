@@ -35,6 +35,6 @@ pre_hook = {
   command = "kubectl apply -f $TF_VAR_secrets_dir/default/concourse/secrets.yaml"
 }
 
-post_hook = {
-  command = "kubectl apply -f $TF_VAR_secrets_dir/default/ci/"
-}
+kubernetes_secrets = [
+  "default/ci/",
+]
