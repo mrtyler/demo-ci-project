@@ -20,8 +20,10 @@ terragrunt = {
 
 # ↓ Module configuration (empty means all default)
 
+tiller_namespace = "default"
+
 release_spec = {
-  enabled     = false
+  enabled     = true
   domain_name = "registry.flexeption.pw"
 
   release_name = "docker-registry"
@@ -33,6 +35,6 @@ release_spec = {
 
 ingress_basic_auth = {
   secret_name = "registry-htpasswd"
-  username    = "team1/docker-registry/basic-auth-username"
-  password    = "team1/docker-registry/basic-auth-password"
+  username    = "default/docker-registry/basic-auth-username"
+  password    = "default/docker-registry/basic-auth-password"
 }
