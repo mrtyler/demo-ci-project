@@ -1,6 +1,6 @@
 /*
 
-Template for managing Google Cloud IAM role bindings to users or serviceAccounts
+Template for adding Google Cloud IAM role bindings to users or serviceAccounts
 
 
 # Full control over the kerring and all encryption keys in it
