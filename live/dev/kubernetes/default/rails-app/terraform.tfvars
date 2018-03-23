@@ -21,8 +21,9 @@ terragrunt = {
 # Module configuration
 
 release_spec = {
-  enabled      = false
-  release_name = "rails-app"
+  enabled          = false
+  release_name     = "rails-app"
+  tiller_namespace = "default"
 
   chart_repo = "exekube"
   chart_name = "rails-app"

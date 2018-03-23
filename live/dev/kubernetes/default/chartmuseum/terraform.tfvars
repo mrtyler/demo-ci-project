@@ -36,6 +36,6 @@ post_hook = {
 
 ingress_basic_auth = {
   secret_name = "chartrepo-htpasswd"
-  username    = "team1/chartmuseum/basic-auth-username"
-  password    = "team1/chartmuseum/basic-auth-password"
+  username    = "default/chartmuseum/basic-auth-username"
+  password    = "default/chartmuseum/basic-auth-password"
 }
