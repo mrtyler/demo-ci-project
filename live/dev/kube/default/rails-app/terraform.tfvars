@@ -21,7 +21,7 @@ terragrunt = {
 # Module configuration
 
 release_spec = {
-  enabled          = false
+  enabled          = true
   release_name     = "rails-app"
   tiller_namespace = "default"
 
