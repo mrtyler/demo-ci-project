@@ -8,17 +8,22 @@ services:
       TF_INPUT: "0"
       TF_LOG:
       USER: root
+      ENV:
     env_file:
       - ./live/.env
-      - ./live/prod/.env
+      - ./live/${ENV}/.env
     ports:
       - 8001:8001
     volumes:
+      - .:/project
+      - ./.config/helm:/root/.helm
+      - ./.config/terragrunt:/root/.terragrunt
+      - ./.config/gcloud:/root/.config/gcloud
+      - ./.config/kube:/root/.kube
+
+      # EXEKUBE DEVELOPMENT
       - ../exekube/modules:/exekube-modules
       - ../exekube/docker-entrypoint.sh:/usr/local/bin/docker-entrypoint.sh
-      - .:/project
-      - ./.cache/helm:/root/.helm
-      - ./.cache/terragrunt:/root/.terragrunt
-      - ./.cache/gcloud:/root/.config/gcloud
-      - ./.cache/kube:/root/.kube
+      # ---
+
     command: kubectl proxy --address="0.0.0.0" --accept-hosts ".*"

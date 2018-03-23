@@ -1,4 +1,4 @@
-# Module metadata
+# ↓ Module metadata
 
 terragrunt = {
   terraform {
@@ -10,14 +10,14 @@ terragrunt = {
   }
 }
 
-# Module configuration
+# ↓ Module configuration (empty means all default)
 
 dns_zones = {
   "flexeption-pw" = "flexeption.pw."
   "flexeption-us" = "flexeption.us."
 }
 
-ingress_domains = {
+dns_records = {
   "flexeption-pw" = "*.flexeption.pw."
   "flexeption-us" = "*.flexeption.us."
 }

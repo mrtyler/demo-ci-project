@@ -1,4 +1,4 @@
-# Module metadata
+# ↓ Module metadata
 
 terragrunt = {
   terraform {
@@ -10,6 +10,5 @@ terragrunt = {
   }
 }
 
-# Module configuration
+# ↓ Module configuration (empty means all default)
 
-network_name = "prod-internal-ops-network"

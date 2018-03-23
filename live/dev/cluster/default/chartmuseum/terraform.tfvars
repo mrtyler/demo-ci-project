@@ -1,4 +1,4 @@
-# Module metadata
+# ↓ Module metadata
 
 terragrunt = {
   terraform {
@@ -8,8 +8,8 @@ terragrunt = {
   dependencies {
     paths = [
       "../../cluster",
-      "../../system/ingress-controller",
-      "../../system/kube-lego",
+      "../../kube-system/ingress-controller",
+      "../../kube-system/kube-lego",
     ]
   }
 
@@ -18,9 +18,7 @@ terragrunt = {
   }
 }
 
-# Module configuration variables
-
-custom_tls_dir = "system"
+# ↓ Module configuration (empty means all default)
 
 release_spec = {
   enabled      = false

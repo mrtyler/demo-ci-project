@@ -4,9 +4,8 @@ terragrunt = {
     backend = "gcs"
 
     config {
-      project     = "${get_env("TF_VAR_terraform_project", "")}"
-      credentials = "${get_env("TF_VAR_terraform_credentials", "")}"
-      bucket      = "${get_env("TF_VAR_terraform_remote_state", "")}"
+      credentials = "${get_env("TF_VAR_serviceaccount_key", "")}"
+      bucket      = "${get_env("TF_VAR_project_id", "")}-tfstate"
       prefix      = "${path_relative_to_include()}"
     }
   }

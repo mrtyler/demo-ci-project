@@ -1,4 +1,4 @@
-# Module metadata
+# ↓ Module metadata
 
 terragrunt = {
   terraform {
@@ -16,6 +16,5 @@ terragrunt = {
   }
 }
 
-# Module configuration variables
+# ↓ Module configuration (empty means all default)
 
-custom_tls_dir = "system"

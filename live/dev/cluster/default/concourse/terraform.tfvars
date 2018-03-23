@@ -1,4 +1,4 @@
-# Module metadata
+# ↓ Module metadata
 
 terragrunt = {
   terraform {
@@ -8,8 +8,8 @@ terragrunt = {
   dependencies {
     paths = [
       "../../cluster",
-      "../../system/ingress-controller",
-      "../../system/kube-lego",
+      "../../kube-system/ingress-controller",
+      "../../kube-system/kube-lego",
     ]
   }
 
@@ -18,12 +18,10 @@ terragrunt = {
   }
 }
 
-# Module configuration variables
-
-custom_tls_dir = "system"
+# ↓ Module configuration (empty means all default)
 
 release_spec = {
-  enabled      = false
+  enabled      = true
   release_name = "concourse"
 
   chart_repo    = "stable"
@@ -34,9 +32,9 @@ release_spec = {
 }
 
 pre_hook = {
-  command = "kubectl apply -f $TF_VAR_secrets_dir/team1/concourse/concourse.yaml"
+  command = "kubectl apply -f $TF_VAR_secrets_dir/default/concourse/secrets.yaml"
 }
 
 post_hook = {
-  command = "kubectl apply -f $TF_VAR_secrets_dir/team1/ci/"
+  command = "kubectl apply -f $TF_VAR_secrets_dir/default/ci/"
 }

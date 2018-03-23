@@ -1,4 +1,4 @@
-# Module metadata
+# ↓ Module metadata
 
 terragrunt = {
   terraform {
@@ -17,9 +17,7 @@ terragrunt = {
   }
 }
 
-# Module configuration variables
-
-custom_tls_dir = "system"
+# ↓ Module configuration (empty means all default)
 
 release_spec = {
   enabled       = true
@@ -32,7 +30,7 @@ release_spec = {
 
 post_hook = {
   command = <<-EOF
-    kubectl apply -f $TF_VAR_secrets_dir/system/dashboard-rbac.yaml \
-    && kubectl apply -f $TF_VAR_secrets_dir/system/tls-certs.yaml
+    kubectl apply -f $TF_VAR_secrets_dir/kube-system/dashboard/rbac.yaml \
+    && kubectl apply -f $TF_VAR_secrets_dir/kube-system/kube-lego/certs.yaml
     EOF
 }

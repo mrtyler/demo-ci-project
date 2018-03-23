@@ -15,8 +15,7 @@ The `live` directory contains configuration for every environment (dev, stg, tes
 ```
 ├── live
 │   ├── dev
-│   ├── stg
-│   ├── test
+│   ├── stg
 │   ├── prod
 │   └── terraform.tfvars
 ```
