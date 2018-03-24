@@ -28,5 +28,5 @@ release_spec = {
   chart_repo = "exekube"
   chart_name = "rails-app"
 
-  domain_name = "prod.rails-app.flexeption.pw"
+  domain_name = "rails-app.c6ns.pw"
 }

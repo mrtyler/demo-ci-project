@@ -2,9 +2,8 @@
 
 An example cloud project built with the [Exekube framework](https://github.com/exekube/exekube)
 
->  :warning:
->
->  This is a work in progress
+>  :warning:  This is a work in progress
+
 
 The **Internal Ops Project** contains configuration for deploying a Kubernetes cluster onto the Google Cloud Platform (GCP), as well as Kubernetes resources (via Helm charts) that result in this software released into the cloud:
 

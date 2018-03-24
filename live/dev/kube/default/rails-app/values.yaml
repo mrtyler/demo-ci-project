@@ -8,14 +8,17 @@ image:
   tag: 1.0.0
   pullPolicy: Always
   # pullSecret: registry-login-secret
+
+serviceType: NodePort
+servicePort: 3000
+
 ingress:
   enabled: true
-  annotations:
-    kubernetes.io/ingress.class: "nginx"
-    kubernetes.io/tls-acme: "true"
+  # annotations:
+    # kubernetes.io/ingress.global-static-ip-name: global-static-ip
   hosts:
     - ${domain_name}
-  tls:
-    - secretName: ${domain_name}-tls
-      hosts:
-        - ${domain_name}
+  # tls:
+    #- secretName: ${domain_name}-tls
+      #hosts:
+        #- ${domain_name}
