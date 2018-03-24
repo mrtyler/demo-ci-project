@@ -22,12 +22,12 @@ terragrunt = {
 # Module configuration
 
 release_spec = {
-  enabled          = false
-  release_name     = "rails-app"
+  enabled          = true
+  release_name     = "forms-app"
   tiller_namespace = "default"
 
   chart_repo = "exekube"
-  chart_name = "rails-app"
+  chart_name = "nginx-react"
 
   domain_name = "dev.rails-app.c6ns.pw"
 }
