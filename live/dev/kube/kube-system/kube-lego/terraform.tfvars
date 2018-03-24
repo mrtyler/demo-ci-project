@@ -20,8 +20,9 @@ terragrunt = {
 # ↓ Module configuration (empty means all default)
 
 release_spec = {
-  enabled      = true
-  namespace    = "kube-system"
+  enabled = true
+
+  # namespace    = "kube-system"
   release_name = "kube-lego"
 
   chart_repo    = "stable"

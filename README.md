@@ -13,7 +13,7 @@ The **Internal Ops Project** contains configuration for deploying a Kubernetes c
 
 ## Project structure
 
-The `live` directory contains configuration for every environment (dev, stg, test, prod) for this product. The `live/terraform.tf` directory contains Terraform / Terragrunt configuration common for every environment.
+The `live` directory contains configuration for every environment (dev, stg, prod) for this product. The `live/terraform.tf` directory contains Terraform / Terragrunt configuration common for every environment. The `live/.env` file contains variables common for every environment.
 
 ```sh
 ├── live/
@@ -28,9 +28,10 @@ The `live` directory contains configuration for every environment (dev, stg, tes
 
 Every environment (dev, stg, test, prod, etc.) directory is broken down into resources (cloud resources) of these categories:
 
-- project
-- kube
-- secrets
+- project (cloud project resources, e.g. network, subnets, firewall rules, dns)
+- kube (cluster and cluster workloads, config, storage, and networking resources)
+- secrets (secrets specific to this environment)
+- .env (environment-specific variables common to several modules)
 
 ```
 live/

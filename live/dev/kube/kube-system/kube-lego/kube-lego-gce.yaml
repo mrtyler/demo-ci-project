@@ -1,0 +1,24 @@
+# If kube-lego refuses to create, `kubectl apply`
+# As there's a bug with kube-lego and gce-ingress that causes the kube-lego-gce
+# service created without the selector.app: kube-lego
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kubernetes.io/kube-lego-managed: "true"
+  name: kube-lego-gce
+  namespace: default
+spec:
+  selector:
+    app: kube-lego
+  clusterIP: 10.18.28.152
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 32595
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

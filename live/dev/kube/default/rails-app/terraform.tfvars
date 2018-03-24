@@ -8,7 +8,7 @@ terragrunt = {
   dependencies {
     paths = [
       "../../cluster",
-      "../../kube-system/helm-tiller",
+      "../helm-tiller",
       "../../kube-system/ingress-controller",
       "../../kube-system/kube-lego",
     ]
@@ -29,5 +29,5 @@ release_spec = {
   chart_repo = "exekube"
   chart_name = "rails-app"
 
-  domain_name = "rails-app.c6ns.pw"
+  domain_name = "dev.rails-app.c6ns.pw"
 }
