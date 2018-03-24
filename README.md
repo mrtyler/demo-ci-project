@@ -1,105 +1,54 @@
 # Internal Ops Project
 
-This example project uses the [Exekube framework](https://github.com/exekube/exekube).
+An example cloud project built with the [Exekube framework](https://github.com/exekube/exekube)
 
-The **Internal Ops Project** contains configuration for deploying a Kubernetes cluster onto the Google Kubernetes Engine (GKE), as well as Kubernetes resources that result in this software released into the cloud:
+>  :warning:
+>
+>  This is a work in progress
 
-- CI / CD self-hosted service (✈️ Concourse, Jenkins, or Drone)
-- A private 🐳 Docker Registry (v2)
-- A 📋 ChartMuseum repository for hosting Helm charts
+The **Internal Ops Project** contains configuration for deploying a Kubernetes cluster onto the Google Cloud Platform (GCP), as well as Kubernetes resources (via Helm charts) that result in this software released into the cloud:
+
+- CI / CD self-hosted service (Concourse)
+- A private Docker Registry (v2)
+- A private ChartMuseum repository for hosting Helm charts
 
 ## Project structure
 
 The `live` directory contains configuration for every environment (dev, stg, test, prod) for this product. The `live/terraform.tf` directory contains Terraform / Terragrunt configuration common for every environment.
 
-```
-├── live
-│   ├── dev
-│   ├── stg
-│   ├── prod
-│   └── terraform.tfvars
+```sh
+├── live/
+│   ├── dev/
+│   ├── stg/
+│   ├── prod/
+│   ├── .env # variables common for every environment
+│   └── terraform.tfvars # terraform config common to every environment
 ```
 
 ## Environment (product environment) configuration
 
-Every environment (dev, stg, test, prod, etc.) directory is broken down into resources (cloud resources) of these categories: **project, cluster, releases, secrets**:
+Every environment (dev, stg, test, prod, etc.) directory is broken down into resources (cloud resources) of these categories:
+
+- project
+- kube
+- secrets
 
 ```
-live
-├── dev
-│   ├── cluster
-│   ├── project
-│   ├── releases
-│   └── secrets
-├── stg
-│   ├── cluster
-│   ├── project
-│   ├── releases
-│   └── secrets
-├── prod
-│   ├── cluster
-│   ├── project
-│   ├── releases
-│   └── secrets
+live/
+├── dev/
+│   ├── project/
+│   ├── kube/
+│   ├── secrets/
+│   ├── .env
+│   └── pipelines.yaml
+├── prod/
+│   ├── project/
+│   ├── kube/
+│   ├── secrets/
+│   ├── .env
+│   └── pipelines.yaml
+├── .env
 └── terraform.tfvars
 ```
 
-TODO: describe module structure (terraform.tfvars + values.yaml)
-
-```
-live
-├── prod
-│   ├── cluster
-│   │   └── terraform.tfvars
-│   ├── releases
-│   │   ├── chartmuseum
-│   │   │   ├── terraform.tfvars
-│   │   │   └── values.yaml
-│   │   ├── concourse
-│   │   │   ├── terraform.tfvars
-│   │   │   └── values.yaml
-│   │   ├── docker-registry
-│   │   │   ├── terraform.tfvars
-│   │   │   └── values.yaml
-│   │   ├── ingress-controller
-│   │   │   ├── terraform.tfvars
-│   │   │   └── values.yaml
-│   │   ├── kube-lego
-│   │   │   ├── terraform.tfvars
-│   │   │   └── values.yaml
-│   │   └── rails-app
-│   │       ├── terraform.tfvars
-│   │       └── values.yaml
-│   └── secrets
-│       ├── chartmuseum
-│       │   ├── basic-auth-password
-│       │   └── basic-auth-username
-│       ├── ci
-│       │   ├── apps-pipelines.yaml
-│       │   ├── common.yaml
-│       │   ├── forms-app-pipeline.yaml
-│       │   └── rails-react-boilerplate.yaml
-│       ├── concourse
-│       │   ├── basic-auth-password
-│       │   ├── basic-auth-username
-│       │   ├── encryption-key
-│       │   ├── github-auth-client-id
-│       │   ├── github-auth-client-secret
-│       │   ├── host-key
-│       │   ├── host-key-pub
-│       │   ├── old-encryption-key
-│       │   ├── postgresql-user
-│       │   ├── session-signing-key
-│       │   ├── worker-key
-│       │   └── worker-key-pub
-│       ├── dashboard-rbac.yaml
-│       ├── docker-registry
-│       │   ├── basic-auth-password
-│       │   └── basic-auth-username
-│       ├── letsencrypt.yaml
-│       └── sa
-│           └── owner.json
-├── stg
-└── terraform.tfvars
-```
 ... to be continued ...
