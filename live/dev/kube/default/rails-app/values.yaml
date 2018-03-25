@@ -5,12 +5,13 @@ replicaCount: 2
 # nameOverride: rails
 image:
   repository: ilyasotkov/rails-react-boilerplate
-  tag: 1.0.0
+  tag: latest
   pullPolicy: Always
   # pullSecret: registry-login-secret
 
 serviceType: NodePort
 servicePort: 3000
+railsForceSsl: ""
 
 ingress:
   enabled: true
