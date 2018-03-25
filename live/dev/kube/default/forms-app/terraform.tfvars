@@ -9,8 +9,6 @@ terragrunt = {
     paths = [
       "../../cluster",
       "../helm-tiller",
-      "../../kube-system/ingress-controller",
-      "../../kube-system/kube-lego",
     ]
   }
 
