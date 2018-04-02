@@ -21,7 +21,7 @@ terragrunt = {
 # ↓ Module configuration (empty means all default)
 
 release_spec = {
-  enabled          = false
+  enabled          = true
   tiller_namespace = "kube-system"
   namespace        = "default"
 
@@ -33,10 +33,10 @@ release_spec = {
   domain_name = "ci.flexeption.pw"
 }
 
+# kubernetes_secrets = [
+#   "default/ci/",
+# ]
+
 pre_hook = {
   command = "kubectl apply -f $TF_VAR_secrets_dir/default/concourse/secrets.yaml"
 }
-
-kubernetes_secrets = [
-  "default/ci/",
-]
