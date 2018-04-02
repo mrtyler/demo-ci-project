@@ -7,8 +7,7 @@ terragrunt = {
 
   dependencies {
     paths = [
-      "../../cluster",
-      "../../kube-system/helm-tiller",
+      "../../kube-system/_helm",
       "../../kube-system/ingress-controller",
       "../../kube-system/kube-lego",
     ]
@@ -24,6 +23,7 @@ terragrunt = {
 release_spec = {
   enabled          = true
   tiller_namespace = "default"
+  namespace        = "default"
 
   domain_name   = "registry.flexeption.pw"
   release_name  = "docker-registry"

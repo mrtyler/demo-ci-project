@@ -7,8 +7,7 @@ terragrunt = {
 
   dependencies {
     paths = [
-      "../../cluster",
-      "../../kube-system/helm-tiller",
+      "../../kube-system/_helm",
       "../../kube-system/ingress-controller",
       "../../kube-system/kube-lego",
     ]
@@ -22,8 +21,10 @@ terragrunt = {
 # ↓ Module configuration (empty means all default)
 
 release_spec = {
-  enabled      = false
-  release_name = "chartmuseum"
+  enabled          = false
+  tiller_namespace = "kube-system"
+  namespace        = "default"
+  release_name     = "chartmuseum"
 
   chart_repo    = "incubator"
   chart_name    = "chartmuseum"

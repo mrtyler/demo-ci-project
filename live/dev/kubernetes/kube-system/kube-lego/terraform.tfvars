@@ -7,7 +7,7 @@ terragrunt = {
 
   dependencies {
     paths = [
-      "../helm-tiller",
+      "../_helm",
       "../ingress-controller",
     ]
   }
@@ -20,7 +20,9 @@ terragrunt = {
 # ↓ Module configuration (empty means all default)
 
 release_spec = {
-  enabled = true
+  enabled          = true
+  tiller_namespace = "kube-system"
+  namespace        = "kube-system"
 
   # namespace    = "kube-system"
   release_name = "kube-lego"

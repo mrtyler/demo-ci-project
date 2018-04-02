@@ -8,7 +8,7 @@ terragrunt = {
   dependencies {
     paths = [
       "../../cluster",
-      "../helm-tiller",
+      "../_helm",
     ]
   }
 
@@ -17,15 +17,15 @@ terragrunt = {
   }
 }
 
-# Module configuration
+# ↓ Module configuration (empty means all default)
 
 release_spec = {
   enabled          = true
-  release_name     = "forms-app"
-  tiller_namespace = "default"
+  tiller_namespace = "kube-system"
+  namespace        = "kube-system"
 
-  chart_repo = "exekube"
-  chart_name = "nginx-react"
-
-  domain_name = "dev.rails-app.c6ns.pw"
+  release_name  = "cluster-admin"
+  chart_repo    = "exekube"
+  chart_name    = "cluster-admin"
+  chart_version = "0.2.0"
 }

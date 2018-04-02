@@ -2,7 +2,7 @@
 
 terragrunt = {
   terraform {
-    source = "/exekube-modules//helm-tiller"
+    source = "/exekube-modules//helm-initializer"
   }
 
   dependencies {
@@ -18,4 +18,3 @@ terragrunt = {
 
 # ↓ Module configuration (empty means all default)
 
-tiller_namespace = "default"

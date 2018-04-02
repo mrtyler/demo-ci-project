@@ -1,4 +1,4 @@
-version: "2"
+version: "3"
 
 services:
   exekube:
@@ -11,7 +11,7 @@ services:
       ENV:
     env_file:
       - ./live/.env
-      - ./live/${ENV}/.env
+      - ./live/${ENV:?err}/.env
     ports:
       - 8001:8001
     volumes:

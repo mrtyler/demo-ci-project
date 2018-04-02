@@ -1,12 +1,12 @@
-# Internal Ops Project
+# Demo Exekube Project: demo-ci-project
 
 An example cloud project built with the [Exekube framework](https://github.com/exekube/exekube)
 
 > :warning:
->This is a work in progress
+> This is a work in progress
 > :warning:
 
-The **Internal Ops Project** contains configuration for deploying a Kubernetes cluster onto the Google Cloud Platform (GCP), as well as Kubernetes resources (via Helm charts) that result in this software released into the cloud:
+The exekube/demo-ci-project contains configuration for deploying a Kubernetes cluster onto the Google Cloud Platform (GCP), as well as Kubernetes resources (via Helm charts) that result in this software released into the cloud:
 
 - CI / CD self-hosted service (Concourse)
 - A private Docker Registry (v2)
@@ -38,13 +38,13 @@ Every environment (dev, stg, test, prod, etc.) directory is broken down into res
 live/
 ├── dev/
 │   ├── project/
-│   ├── kube/
+│   ├── kubernetes/
 │   ├── secrets/
 │   ├── .env
 │   └── concourse-pipelines.yaml
 ├── prod/
 │   ├── project/
-│   ├── kube/
+│   ├── kubernetes/
 │   ├── secrets/
 │   ├── .env
 │   └── concourse-pipelines.yaml
