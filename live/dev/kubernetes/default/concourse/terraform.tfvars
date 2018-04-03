@@ -28,7 +28,7 @@ release_spec = {
   release_name  = "concourse"
   chart_repo    = "stable"
   chart_name    = "concourse"
-  chart_version = "1.0.4"
+  chart_version = "1.1.3"
 
   domain_name = "ci.flexeption.pw"
 }

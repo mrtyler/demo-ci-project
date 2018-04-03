@@ -8,7 +8,7 @@ An example cloud project built with the [Exekube framework](https://github.com/e
 
 The exekube/demo-ci-project contains configuration for deploying a Kubernetes cluster onto the Google Cloud Platform (GCP), as well as Kubernetes resources (via Helm charts) that result in this software released into the cloud:
 
-- A self-hosted CI / CD service (<https://concourse-ci.org>)
+- A Concourse server -- self-hosted CI / CD service (<https://concourse-ci.org>)
 - A private Docker Registry (https://docs.docker.com/registry)
 - A private ChartMuseum repository for hosting Helm charts (https://github.com/kubernetes-helm/chartmuseum)
 
@@ -47,10 +47,25 @@ live/
 
 | Configuration types for every environment | What's in there? |
 | --- | --- |
-| `project` | ☁️ Cloud provider resources, e.g. network, subnets, firewall rules, DNS |
-| `kubernetes` | ☸️ kube-api resources (via Helm releases) -- workloads, config, storage, and networking Kubernetes resources |
+| `project` | ☁️ Google Cloud resources, e.g. project settings, network, subnets, firewall rules, DNS |
+| `kubernetes` | ☸️ GKE cluster configuration, Kubernetes API resources and Helm release configuration |
 | `secrets` | 🔐 Secrets specific to this environment, stored and distributed in GCS (Cloud Storage) buckets and encrypted by Google Cloud KMS encryption keys |
 | `.env` | 🔩 Environment-specific variables common to several modules |
 
 
+# Tutorial
+
+## Prerequisites
+
+- You'll need a Google Account with an [Organization resource](https://cloud.google.com/resource-manager/docs/quickstart-organizations)
+- On your workstation, you'll need to have [Docker Community Edition](https://www.docker.com/community-edition) installed
+
+## Quickstart
+
+1. Clone this repo:
+
+    ```sh
+    git clone https://github.com/exekube/demo-ci-project
+    ```
+    
 ... to be continued ...
