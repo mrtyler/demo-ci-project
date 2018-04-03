@@ -8,13 +8,13 @@ An example cloud project built with the [Exekube framework](https://github.com/e
 
 The exekube/demo-ci-project contains configuration for deploying a Kubernetes cluster onto the Google Cloud Platform (GCP), as well as Kubernetes resources (via Helm charts) that result in this software released into the cloud:
 
-- CI / CD self-hosted service (Concourse)
-- A private Docker Registry (v2)
-- A private ChartMuseum repository for hosting Helm charts
+- A self-hosted CI / CD service (<https://concourse-ci.org>)
+- A private Docker Registry (https://docs.docker.com/registry)
+- A private ChartMuseum repository for hosting Helm charts (https://github.com/kubernetes-helm/chartmuseum)
 
 ## Project structure
 
-The `live` directory contains configuration for every environment (dev, stg, prod) for this product. The `live/terraform.tf` directory contains Terraform / Terragrunt configuration common for every environment. The `live/.env` file contains variables common for every environment.
+The `live` directory contains configuration for every environment (dev, stg, prod) for this product.
 
 ```sh
 ├── live/
@@ -25,31 +25,30 @@ The `live` directory contains configuration for every environment (dev, stg, pro
 │   └── terraform.tfvars # terraform config common to every environment
 ```
 
-## Environment (product environment) configuration
+Every environment (dev, stg, test, prod, etc.) directory is further broken down into directories that contain resources (cloud resources) of these categories:
 
-Every environment (dev, stg, test, prod, etc.) directory is broken down into resources (cloud resources) of these categories:
-
-- project (cloud project resources, e.g. network, subnets, firewall rules, dns)
-- kube (cluster and cluster workloads, config, storage, and networking resources)
-- secrets (secrets specific to this environment)
-- .env (environment-specific variables common to several modules)
-
-```
+```sh
 live/
 ├── dev/
 │   ├── project/
 │   ├── kubernetes/
 │   ├── secrets/
 │   ├── .env
-│   └── concourse-pipelines.yaml
+│   └── ci.yaml # ci.yaml contains Concourse pipelines manifest
 ├── prod/
 │   ├── project/
 │   ├── kubernetes/
 │   ├── secrets/
 │   ├── .env
-│   └── concourse-pipelines.yaml
-├── .env
-└── terraform.tfvars
+│   └── ci.yaml
 ```
+
+| Configuration types for every environment] | What's in there? |
+| --- | --- |
+| `project` | ☁️ Cloud project resources, e.g. network, subnets, firewall rules, dns |
+| `kubernetes` | ☸️ kube-api resources (via Helm releases) -- workloads, config, storage, and networking Kubernetes resources |
+| `secrets` | 🔐 Secrets specific to this environment, stored and distributed via a GCS (Cloud Storage) buckets and encrypted by Google Cloud KMS encryption keys |
+| `.env` | 🔩 Environment-specific variables common to several modules |
+
 
 ... to be continued ...
