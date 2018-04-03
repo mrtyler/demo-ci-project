@@ -21,8 +21,8 @@ The `live` directory contains configuration for every environment (dev, stg, pro
 │   ├── dev/
 │   ├── stg/
 │   ├── prod/
-│   ├── .env # variables common for every environment
-│   └── terraform.tfvars # terraform config common to every environment
+│   ├── .env # Common TF_VARs -- variables shared by multiple modules
+│   └── terraform.tfvars # Terraform / Terragrunt config for modules (e.g. remote state config)
 ```
 
 Every environment (dev, stg, test, prod, etc.) directory is further broken down into directories that contain resources (cloud resources) of these categories:
@@ -35,19 +35,21 @@ live/
 │   ├── secrets/
 │   ├── .env
 │   └── ci.yaml # ci.yaml contains Concourse pipelines manifest
-├── prod/
+├── stg/
 │   ├── project/
 │   ├── kubernetes/
 │   ├── secrets/
 │   ├── .env
 │   └── ci.yaml
+├── prod/
+│   ...
 ```
 
-| Configuration types for every environment] | What's in there? |
+| Configuration types for every environment | What's in there? |
 | --- | --- |
-| `project` | ☁️ Cloud project resources, e.g. network, subnets, firewall rules, dns |
+| `project` | ☁️ Cloud provider resources, e.g. network, subnets, firewall rules, DNS |
 | `kubernetes` | ☸️ kube-api resources (via Helm releases) -- workloads, config, storage, and networking Kubernetes resources |
-| `secrets` | 🔐 Secrets specific to this environment, stored and distributed via a GCS (Cloud Storage) buckets and encrypted by Google Cloud KMS encryption keys |
+| `secrets` | 🔐 Secrets specific to this environment, stored and distributed in GCS (Cloud Storage) buckets and encrypted by Google Cloud KMS encryption keys |
 | `.env` | 🔩 Environment-specific variables common to several modules |
 
 
