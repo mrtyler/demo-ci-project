@@ -57,15 +57,12 @@ Explore the directory structure (https://github.com/exekube/demo-ci-project/tree
 | `.env` | 🔩 Environment-specific variables common to several modules |
 | `ci.yaml` | ✈️ Concourse pipeline [manifest for CI pipelines](https://github.com/concourse/concourse-pipeline-resource#dynamic) |
 
-
-# Tutorial
+# Getting started
 
 ## Prerequisites
 
 - You'll need a Google Account with access to an [Organization resource](https://cloud.google.com/resource-manager/docs/quickstart-organizations)
 - On your workstation, you'll need to have [Docker Community Edition](https://www.docker.com/community-edition) installed
-
-# Getting started
 
 ## Get Exekube and a demo project
 
