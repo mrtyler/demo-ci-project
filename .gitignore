@@ -6,3 +6,4 @@ live/**/secrets/**
 !live/**/secrets/terraform.tfvars
 !live/**/secrets/permissions.tf
 !live/**/secrets/*.example
+.*.sw?
