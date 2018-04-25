@@ -7,7 +7,7 @@ terragrunt = {
 
   dependencies {
     paths = [
-      "../cluster-admin",
+      ###"../cluster-admin",
       "../_helm",
     ]
   }

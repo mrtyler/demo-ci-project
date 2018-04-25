@@ -2,7 +2,8 @@
 
 terragrunt = {
   terraform {
-    source = "/exekube-modules//gcp-project"
+    ###source = "/exekube-modules//gcp-project"
+    source = "/exekube-modules//gke-network"
   }
 
   include = {
